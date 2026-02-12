@@ -1,0 +1,6 @@
+image:
+  repository: registry.gitlab.com/your-group/oracle
+  tag: latest
+
+env:
+  DATABASE_URL: ""

@@ -1,0 +1,76 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Packaging/build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Test and tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyright/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Logs
+*.log
+*.out
+*.err
+*.pid
+logs/
+log/
+
+# Environment and secrets
+.env
+.env.*
+*.local
+.envrc
+.python-version
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Notebook and local temp state
+.ipynb_checkpoints/
+tmp/
+temp/
+*.tmp
+
+# Local databases and dumps
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.sql.gz
+
+# Local Helm/Kubernetes overrides
+values.local.yaml
+values.override.yaml
+
+# Project-specific local agent docs
+CLAUDE.md
+AGENTS.md

@@ -1,0 +1,3 @@
+apiVersion: v2
+name: oracle-worker
+version: 0.1.0

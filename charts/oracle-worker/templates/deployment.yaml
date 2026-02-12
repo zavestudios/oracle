@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oracle-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oracle-worker
+  template:
+    metadata:
+      labels:
+        app: oracle-worker
+    spec:
+      containers:
+        - name: worker
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          env:
+            - name: DATABASE_URL
+              value: "{{ .Values.env.DATABASE_URL }}"
