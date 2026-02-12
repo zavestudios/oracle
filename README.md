@@ -45,16 +45,18 @@ The worker runs a perpetual polling loop in `oracle_worker/worker.py`.
 
 ### Claim Semantics
 
-`claim_job(...)` selects one job with:
+- `claim_job(...)` selects one job with:
 
-- `state IN ('PENDING', 'FAILED_RETRYABLE')`, or
+- `state IN ('PENDING', 'FAILED_RETRYABLE')`
+    or 
 - `state = 'RUNNING'` and expired lease (`lease_expires_at < now()`)
 
 It uses:
-
-- `ORDER BY created_at`
-- `FOR UPDATE SKIP LOCKED`
-- `LIMIT 1`
+```
+ORDER BY created_at
+FOR UPDATE SKIP LOCKED
+LIMIT 1
+```
 
 After selecting a job, it:
 
