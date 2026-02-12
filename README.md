@@ -210,6 +210,45 @@ Set these Helm values at minimum:
 - `image.tag`
 - `env.DATABASE_URL`
 
+## Docker Compose (Local Stack)
+
+This repo includes `docker-compose.yaml` with three services:
+
+- `db`: PostgreSQL 16
+- `migrate`: applies `db/migrations/001_init.sql` and `db/migrations/002_indexes.sql`
+- `worker`: runs `python -m oracle_worker.worker` after DB is healthy and migrations complete
+
+Start the full stack:
+
+```bash
+docker compose up --build -d
+```
+
+Check status:
+
+```bash
+docker compose ps
+```
+
+View logs:
+
+```bash
+docker compose logs -f worker
+docker compose logs migrate
+```
+
+Stop and remove containers:
+
+```bash
+docker compose down
+```
+
+Stop and remove containers plus Postgres data volume:
+
+```bash
+docker compose down -v
+```
+
 ## Known Limitations
 
 - Exception handling currently classifies runtime failures as retryable by default.

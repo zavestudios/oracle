@@ -4,14 +4,20 @@
 
 CREATE SCHEMA IF NOT EXISTS oracle;
 
-CREATE TYPE IF NOT EXISTS oracle_job_state AS ENUM (
-  'PENDING',
-  'RUNNING',
-  'SUCCEEDED',
-  'FAILED_RETRYABLE',
-  'FAILED_TERMINAL',
-  'CANCELLED'
-);
+DO $$
+BEGIN
+  CREATE TYPE oracle_job_state AS ENUM (
+    'PENDING',
+    'RUNNING',
+    'SUCCEEDED',
+    'FAILED_RETRYABLE',
+    'FAILED_TERMINAL',
+    'CANCELLED'
+  );
+EXCEPTION
+  WHEN duplicate_object THEN NULL;
+END
+$$;
 
 CREATE TABLE IF NOT EXISTS oracle.jobs (
   job_id              UUID PRIMARY KEY,
