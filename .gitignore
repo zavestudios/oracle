@@ -74,3 +74,4 @@ values.override.yaml
 # Project-specific local agent docs
 CLAUDE.md
 AGENTS.md
+strict-audit

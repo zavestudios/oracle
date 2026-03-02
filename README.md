@@ -3,6 +3,12 @@
 Oracle Worker is a Postgres-backed, lease-based job executor for AI-native workloads.
 It implements the execution semantics described in `docs/oracle-worker-execution-contract-v1.md`.
 
+Repository Category: `tenant` (see `platform-docs/_platform/REPO_TAXONOMY.md`)
+
+Documentation authority boundary:
+- This repository documents workload implementation and operations for this tenant.
+- Platform governance, lifecycle, and contract doctrine remain authoritative in `platform-docs/_platform/`.
+
 ## Responsibilities
 
 - Claim jobs from `oracle.jobs`
