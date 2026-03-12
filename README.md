@@ -182,7 +182,21 @@ Unknown `job_type` values raise an exception.
 
 Polling interval is currently fixed in code at 3 seconds.
 
-## Run Locally
+## Local Development
+
+### Prerequisites
+
+- Docker and Docker Compose
+- Git
+
+### Quick Start
+
+```bash
+cp .env.example .env
+docker compose up --build -d
+```
+
+### Run Locally
 
 1. Install dependencies:
 
