@@ -1,0 +1,8 @@
+apiVersion: zave.io/v1
+kind: Workload
+metadata:
+  name: oracle
+spec:
+  runtime: container
+  exposure: none
+  delivery: rolling
