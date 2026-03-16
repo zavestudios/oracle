@@ -1,0 +1,20 @@
+name: Build Oracle Worker
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+jobs:
+  build:
+    uses: zavestudios/platform-pipelines/.github/workflows/container-build.yml@main
+    with:
+      image_name: zavestudios/oracle
+      dockerfile: Dockerfile
+      push: false
+      platforms: linux/amd64
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
