@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    uses: zavestudios/platform-pipelines/.github/workflows/container-build.yaml@main
+    uses: zavestudios/platform-pipelines/.github/workflows/container-build.yml@main
     with:
       image_name: zavestudios/oracle
     secrets:
