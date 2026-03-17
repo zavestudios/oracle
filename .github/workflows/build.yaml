@@ -1,0 +1,13 @@
+name: Build and Push
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    uses: zavestudios/platform-pipelines/.github/workflows/container-build.yaml@main
+    with:
+      workload_name: oracle

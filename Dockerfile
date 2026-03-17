@@ -1,12 +1,10 @@
-FROM python:3.12-slim
+FROM python:3.11-slim
 
 WORKDIR /app
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY oracle_worker ./oracle_worker
+COPY src/ .
 
-ENV PYTHONUNBUFFERED=1
-
-CMD ["python", "-m", "oracle_worker.worker"]
+CMD ["python", "-m", "oracle.worker"]

@@ -3,6 +3,6 @@ kind: Workload
 metadata:
   name: oracle
 spec:
-  runtime: container
+  runtime: python
   exposure: none
   delivery: rolling
