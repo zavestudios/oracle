@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
 jobs:
   build:
     uses: zavestudios/platform-pipelines/.github/workflows/container-build.yml@main
