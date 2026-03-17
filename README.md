@@ -33,12 +33,12 @@ Platform-managed workload deployed via GitOps.
 
 2. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install -r requirements-dev.txt
    ```
 
 3. Run application:
    ```bash
-   python -m oracle.main
+   python -m oracle.worker
    ```
 
 ### Testing
