@@ -10,4 +10,6 @@ jobs:
   build:
     uses: zavestudios/platform-pipelines/.github/workflows/container-build.yaml@main
     with:
-      workload_name: oracle
+      image_name: zavestudios/oracle
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
