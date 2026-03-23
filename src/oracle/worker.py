@@ -34,11 +34,11 @@ def claim_job(conn):
             cur.execute("""
                 UPDATE oracle.jobs
                 SET state = 'RUNNING',
-                    lease_expires_at = now() + interval %s,
+                    lease_expires_at = now() + (%s * interval '1 second'),
                     current_attempt_id = %s,
                     updated_at = now()
                 WHERE job_id = %s
-            """, (f"{LEASE_SECONDS} seconds", attempt_id, job_id))
+            """, (LEASE_SECONDS, attempt_id, job_id))
 
             cur.execute("""
                 INSERT INTO oracle.attempts (attempt_id, job_id, worker_id, status)
@@ -113,7 +113,7 @@ def fail_job(conn, attempt_id, retryable=True, error=None):
 
 
 def main():
-    conn = psycopg.connect(DB_DSN, autocommit=False)
+    conn = psycopg.connect(DB_DSN, autocommit=True)
 
     while True:
         attempt_id = None
