@@ -2,9 +2,12 @@ name: Build and Push
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -12,9 +15,15 @@ permissions:
   id-token: write
 
 jobs:
-  build:
-    uses: zavestudios/platform-pipelines/.github/workflows/container-build.yml@main
+  build-and-dispatch:
+    uses: zavestudios/platform-pipelines/.github/workflows/container-build-dispatch.yml@main
     with:
       image_name: zavestudios/oracle
+      dockerfile: Dockerfile
+      push: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      platforms: linux/amd64,linux/arm64
+      dispatch_repository: zavestudios/gitops
+      dispatch_event_type: oracle-image-published
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITOPS_REPO_DISPATCH_TOKEN: ${{ secrets.GITOPS_REPO_DISPATCH_TOKEN }}
