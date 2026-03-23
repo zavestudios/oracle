@@ -3,6 +3,10 @@ kind: Workload
 metadata:
   name: oracle
 spec:
-  runtime: python
+  runtime: container
   exposure: none
   delivery: rolling
+  build:
+    mode: dockerfile
+  persistence:
+    engine: postgres
