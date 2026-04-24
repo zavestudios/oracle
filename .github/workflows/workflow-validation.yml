@@ -1,0 +1,17 @@
+name: Workflow Validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+jobs:
+  validate-workflows:
+    name: Validate GitHub Actions Workflows
+    uses: zavestudios/platform-pipelines/.github/workflows/workflow-ci.yml@1a17b8c97621a09b71d50f5493638df902468c9e
