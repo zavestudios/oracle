@@ -20,4 +20,4 @@ permissions:
 jobs:
   validate-workflows:
     name: Validate GitHub Actions Workflows
-    uses: zavestudios/platform-pipelines/.github/workflows/workflow-ci.yml@0be73c38bcf2e02dc220a2969d4619b4d49d446a
+    uses: zavestudios/platform-pipelines/.github/workflows/workflow-ci.yml@a05c4ffcb25a40f874c92b9d17187be031e84eaf
