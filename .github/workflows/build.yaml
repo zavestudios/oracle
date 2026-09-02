@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   build-and-dispatch:
-    uses: zavestudios/platform-pipelines/.github/workflows/container-build-dispatch.yml@c0aa80bb405fa24ede5ebcf1c40b0be90328386c
+    uses: zavestudios/platform-pipelines/.github/workflows/container-build-dispatch.yml@95dc3be12e3915599f3f1b99c75864d4c8742c7e
     with:
       image_name: zavestudios/oracle
       dockerfile: Dockerfile
